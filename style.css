@@ -1,46 +1,56 @@
-
-/* Reset */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
-  font-family: 'Segoe UI', sans-serif;
-  scroll-behavior: smooth;
+body,
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-beavior: smooth;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
-/* Geral */
+/* Container principal */
 .container {
   max-width: 960px;
   margin: auto;
   padding: 2rem;
 }
 
+/* Seção normal */
 .section {
   padding: 4rem 0;
   background-color: #fff;
+  transition: background-color 0.3s ease;
 }
 
+/* Títulos */
 h2 {
   text-align: center;
   margin-bottom: 2rem;
   color: #333;
+  font-size: 2rem;
 }
 
+/* Lista de habilidades */
 ul {
   list-style: none;
   display: flex;
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
+  padding: 0;
 }
 
 ul li {
   font-size: 1.2rem;
+  font-weight: 500;
 }
 
+/* Botão principal */
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
@@ -55,14 +65,16 @@ ul li {
   background-color: #2980b9;
 }
 
+/* Rodapé */
 footer {
   text-align: center;
   padding: 2rem;
   background-color: #2c3e50;
   color: white;
+  transition: background-color 0.3s ease;
 }
 
-/* Parallax */
+/* Parallax Header */
 header.parallax,
 section.parallax2 {
   position: relative;
@@ -78,18 +90,20 @@ section.parallax2 {
 }
 
 header.parallax {
-  background-image: url('https://images.unsplash.com/photo-1508610048659-a06b669d3321?auto=format&fit=crop&w=1470&q=80');
+  background-image: url('https://images.unsplash.com/photo-1508610048599-a2b12dd99287?auto=format&fit=crop&w=1470&q=80');
 }
 
 section.parallax2 {
   background-image: url('https://images.unsplash.com/photo-1526378722484-ccce5fc30000?auto=format&fit=crop&w=1470&q=80');
 }
 
+/* Overlay para texto em parallax */
 .overlay {
   background-color: rgba(0, 0, 0, 0.6);
   padding: 2rem;
   border-radius: 10px;
   color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .overlay h1 {
@@ -100,4 +114,56 @@ section.parallax2 {
 .overlay p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode .section {
+  background-color: #1e1e1e;
+}
+
+.dark-mode footer {
+  background-color: #1a1a1a;
+}
+
+.dark-mode .btn {
+  background-color: #2980b9;
+}
+
+.dark-mode .overlay {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Loader Inicial */
+#page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out;
+}
+
+#page-loader::after {
+  content: '';
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
